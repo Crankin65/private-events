@@ -50,6 +50,11 @@
 
   <body>
     <div style="margin: 25px">
+     <% if notice %>
+        <%= render 'layouts/alerts' %>
+      <% end %>      
+      <p class="alert"><%= alert %></p>
+      <p class="notice"><%= notice %></p>
       <%= yield %>
     </div>
   </body>
