@@ -1,24 +1,3 @@
 # Private Events Application
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+A website built from The Odin Project to learn and utilize ActiveRecord and the Devise Gem. The project involved building a website where events are public to everyone but users (once signed in) can create events and see additional details.  
