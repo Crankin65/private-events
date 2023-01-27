@@ -4,6 +4,6 @@ Rails.application.routes.draw do
   root "events#index"
   get "/events/create", to: 'events#create'
   resources :events
-  resources :users, only: :index
+  resources :users, only: :show
 
 end

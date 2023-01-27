@@ -1,12 +1,12 @@
 <p>
   Events that you've made
-  <%=@user.id %>
+
 
   <br>
   <br>
   <% Event.find do |event| %>
-    <% if event.user_id == @user.id %>
-      <%= link_to event.name, event_path(event) %>
+    <% if event.creator_id == @user.id %>
+      <%= link_to event.title, event_path(event) %>
     <% end %>
   <% end %>
 
