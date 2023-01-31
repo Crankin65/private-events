@@ -1,6 +1,20 @@
 <h1>All Events</h1>
 
-<% @events.each do |event| %>
-  <%= event.title %>
-  <%= event.body %>
-<% end %>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col"> Title </th>
+      <th scope="col"> Description </th>
+      <th scope="col">Details</th>
+    </tr>
+  </thead>
+  <% @events.each_with_index do |event,index| %>
+    <tr>
+      <td scope="row"> <%= index + 1 %> </td>
+      <td > <%= event.title %></td>
+      <td> <%= event.body %></td>
+      <td> <%= link_to "Event Details", event_path(event.id)  %></td>
+    </tr>
+  <% end %>
+</table>

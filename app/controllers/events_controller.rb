@@ -5,7 +5,7 @@ class EventsController < ApplicationController
   end
 
   def show
-
+    @event = Event.find(params[:id])
   end
 
   def new
@@ -35,6 +35,13 @@ class EventsController < ApplicationController
 
   def event_params
     params.require(:event).permit(:name, :description, :date)
+  end
+
+  def join(event)
+    if event.attendees.none? {|user| user.email == current_user.email}
+      event.attendees << current_user
+    end
+
   end
 
 
