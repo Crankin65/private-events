@@ -7,6 +7,8 @@
   <% Event.find do |event| %>
     <% if event.user_id == @user.id %>
       <%= link_to event.title, event_path(event) %>
+    <% else %>
+      <p> It looks like you haven't made any events yet!</p>
     <% end %>
   <% end %>
 
