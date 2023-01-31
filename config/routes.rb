@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   resources :events
   resources :users, only: :show
 
+  put 'events/:id/attend', to: 'events#attend', as: 'attend'
 end

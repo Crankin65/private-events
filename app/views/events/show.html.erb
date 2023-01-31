@@ -4,4 +4,24 @@
 <p> This event was made by <%= @event.creator.email %></p>
 <br>
 <p> Would you like to attend?</p>
-Insert button here
+
+<%= button_to 'Attend', attend_path(@event), method: :put %> <br>
+
+<h3>Current Attendees </h3>
+
+<table class="table">
+  <thead>
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col"> Email </th>
+    <th scope="col"> Update</th>
+  </tr>
+  </thead>
+  <% @event.attendees.each_with_index do |attendee,index| %>
+    <tr>
+      <td scope="row"> <%= index + 1 %> </td>
+      <td > <%= attendee.email %></td>
+      <td> Placeholder to update attendee</td>
+    </tr>
+  <% end %>
+</table>

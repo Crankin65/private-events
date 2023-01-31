@@ -31,18 +31,23 @@ class EventsController < ApplicationController
 
   end
 
+  def attend
+    @event = Event.find(params[:id])
+
+    if @event.attendees.none? {|user| user.email == current_user.email}
+      @event.add_attendee(current_user)
+      redirect_to event_path(@event)
+    end
+
+  end
+
   private
 
   def event_params
     params.require(:event).permit(:name, :description, :date)
   end
 
-  def join(event)
-    if event.attendees.none? {|user| user.email == current_user.email}
-      event.attendees << current_user
-    end
 
-  end
 
 
 end

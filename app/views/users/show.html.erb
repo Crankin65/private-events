@@ -1,11 +1,11 @@
-<p>
-  Events that you've made
+
+  <h1>Events that you've made</h1>
 
 
   <br>
   <br>
   <% Event.find do |event| %>
-    <% if event.creator_id == @user.id %>
+    <% if event.user_id == @user.id %>
       <%= link_to event.title, event_path(event) %>
     <% end %>
   <% end %>
@@ -15,5 +15,3 @@
   <%# @user.find_events.each do |event|  %>
   <%#= link_to event.name, event_path(@event) %>
   <%# end %>
-
-</p>
