@@ -1,14 +1,27 @@
 <%= form_with model: @event do |form| %>
+
   <% if @event.errors.any? %>
     <ul>
-      <% @event.errors.full_message.each do |error| %>
+      <% @event.errors.full_messages.each do |error| %>
         <li> <%= error %></li>
       <% end %>
     </ul>
   <% end %>
 
-  <%= form.text_field :title, placeholder: "Event Title" %>
-  <%= form.text_field :body, placeholder: "Event Description" %>
-  <%= form.date_field :date, placeholder: "Event Date" %>
-  <%= form.submit "Create" %>
+  <div class="field"> <br />
+      <%= form.text_field :title, placeholder: "Event Title", required: true%>
+  </div>
+
+  <div class="field"> <br />
+    <%= form.text_field :body, placeholder: "Event Description", required: true %>
+  </div>
+
+  <div class="field"> <br />
+    <%= form.date_field :date, placeholder: "Event Date" , required: true %>
+  </div>
+
+  <div class="field"> <br />
+    <%= form.submit "Create" %>
+  </div>
+
 <% end %>
