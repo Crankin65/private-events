@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   get "/events/create", to: 'events#create'
   resources :events
   resources :users, only: [:show]
-  get 'users/:id/show', to: "users#show", as: :created_events
+  get 'users/:id/show', to: "users#show", as: :attended_events
 
   devise_scope :user do
     get '/users/sign_out' => 'devise/sessions#destroy'

@@ -1,19 +1,39 @@
 
-  <h1>Events that you've made</h1>
+  <h1>Attended Events</h1>
 
 
   <br>
   <br>
+
   <% Event.find do |event| %>
-    <% if event.user_id == @user.id %>
-      <%= link_to event.title, event_path(event) %>
-    <% else %>
-      <p> It looks like you haven't made any events yet!</p>
+
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col"> Title </th>
+            <th scope="col"> Description </th>
+            <th scope="col"> Attendee Count </th>
+            <th scope="col"> Update</th>
+          </tr>
+        </thead>
+
+    <% event.attendees.each do |attendee| %>
+      <% if attendee.email == @user.email %>
+
+            <tr>
+              <% number = 1 %>
+              <td scope="row"> <%= number %> </td>
+              <% number + 1 %>
+              <td > <%= link_to event.title, event_path(event) %></td>
+              <td > <%= event.body %></td>
+              <td > <%= event.attendees.length %></td>
+              <td> Placeholder to update attend status</td>
+            </tr>
+
+      <% end %>
+
     <% end %>
   <% end %>
 
 
-
-  <%# @user.find_events.each do |event|  %>
-  <%#= link_to event.name, event_path(@event) %>
-  <%# end %>
