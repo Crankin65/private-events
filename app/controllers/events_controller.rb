@@ -1,5 +1,4 @@
 class EventsController < ApplicationController
-
   def index
     @events = Event.all
   end
@@ -38,6 +37,14 @@ class EventsController < ApplicationController
       @event.add_attendee(current_user)
       redirect_to event_path(@event)
     end
+
+  end
+
+  def past
+
+  end
+
+  def future
 
   end
 

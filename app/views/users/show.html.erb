@@ -4,19 +4,20 @@
   <br>
 
  <h2> Upcoming Events </h2>
-  <% Event.where('date >= ?', Date.today).find do |event| %>
 
-      <table class="table">
-        <thead>
-          <tr>
-            <th scope="col">#</th>
-            <th scope="col"> Title </th>
-            <th scope="col"> Description </th>
-            <th scope="col"> Date </th>
-            <th scope="col"> Attendee Count </th>
-            <th scope="col"> Update</th>
-          </tr>
-        </thead>
+ <table class="table">
+   <thead>
+   <tr>
+     <th scope="col">#</th>
+     <th scope="col"> Title </th>
+     <th scope="col"> Description </th>
+     <th scope="col"> Date </th>
+     <th scope="col"> Attendee Count </th>
+     <th scope="col"> Update</th>
+   </tr>
+   </thead>
+
+  <% Event.future.find do |event| %>
 
     <% event.attendees.each do |attendee| %>
       <% if attendee.email == @user.email %>
@@ -36,5 +37,7 @@
 
     <% end %>
   <% end %>
+
+
 
 
